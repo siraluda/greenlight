@@ -28,7 +28,7 @@ func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Reques
 	// struct as the target decode destination. If there was an error during decoding,
 	// we also use our generic errorResponse() helper to send the client a 400 Bad
 	// Request response containing the error message.
-	err := app.readJSON(w, r, input)
+	err := app.readJSON(w, r, &input)
 	if err != nil {
 		app.badRequestResponse(w, r, err)
 		return
